@@ -1,5 +1,6 @@
 <template name="profile">
 <div class="container">
+{{#with profile}}
   <div class="row">
     <div class="col m10 offset-m1 s12">
       <h2 class="center-align">Il tuo profilo</h2>
@@ -7,33 +8,22 @@
         <form class="col s12">
           <div class="row">
             <div class="input-field col m6 s12">
-              <input id="first_name" type="text" class="validate">
-              <label for="first_name">First Name</label>
+              <input id="firstName" type="text" class="validate" value="{{firstName}}" pattern="[a-zA-Z]+" required>
+              <label for="firstName">Nome</label>
             </div>
             <div class="input-field col m6 s12">
-              <input id="last_name" type="text" class="validate">
-              <label for="last_name">Last Name</label>
-            </div>
-          </div>
-          <div class="row">
-            <div class="input-field col m6 s12">
-              <i class="mdi-content-mail prefix"></i>
-              <input id="email" type="email" class="validate" required>
-              <label for="email">Email</label>
-            </div>
-            <div class="input-field col m6 s12">
-              <i class="mdi-maps-store-mall-directory prefix"></i>
-              <input id="company" type="text" class="validate">
-              <label for="company">Company</label>
+              <input id="lastName" type="text" class="validate" value="{{lastName}}" pattern="[a-zA-Z]+" required>
+              <label for="lastName">Cognome</label>
             </div>
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <textarea id="message" class="materialize-textarea"></textarea>
-              <label for="message">Message</label>
+              <i class="mdi-content-mail prefix"></i>
+              <input id="email" type="email" class="validate" value="{{email}}" required>
+              <label for="email">Email</label>
             </div>
           </div>
-          <div class="row">
+<!--          <div class="row">
             <div class="input-field col s12">
               <label for="budget">Budget</label>
               <br/>
@@ -88,15 +78,18 @@
               <label for="newsletter">Newsletter</label>
             </div>
           </div>
-          <div class="divider"></div>
+          <div class="divider"></div>-->
           <div class="row">
             <div class="col m12">
-             <p class="right-align"><button class="btn btn-large waves-effect waves-light" type="button" name="action">Send Message</button></p>
+              <p class="right-align">
+                <button class="btn btn-large waves-effect waves-light red" type="submit" name="action">Salva</button>
+              </p>
             </div>
           </div>
         </form>
       </div>
     </div>
   </div>
+{{/with}}
 </div>
 </template>

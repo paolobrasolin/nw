@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor';
 import { Template } from 'meteor/templating';
 import { Chart } from 'meteor/chart:chart';
 
+import './employerCard.html';
  
 Template.employerCard.onRendered(function () {
 //  $('.button-collapse').sideNav({

@@ -29,23 +29,35 @@ worker.route( '/profile', {
 
 worker.route( '/rubric', {
   action: function() {
-    BlazeLayout.render( 'applicationLayout', { main: 'employerRubric' } );
+    BlazeLayout.render( 'applicationLayout', { main: 'rubric' } );
     console.log( "We're viewing the employer rubric." );
   }
 });
 
-worker.route( '/rubric/card', {
-  action: function() {
-    BlazeLayout.render( 'applicationLayout', { main: 'employerCard' } );
-    console.log( "We're viewing an employer card." );
-  }
-});
+//worker.route( '/rubric/card', {
+//  action: function() {
+//    BlazeLayout.render( 'applicationLayout', { main: 'employerCard' } );
+//    console.log( "We're viewing an employer card." );
+//  }
+//});
+//
+//worker.route( '/event', {
+//  action: function() {
+//    BlazeLayout.render( 'applicationLayout', { main: 'event' } );
+//    console.log( "We're viewing an event." );
+//  }
+//});
 
-worker.route( '/event', {
-  action: function() {
-    BlazeLayout.render( 'applicationLayout', { main: 'event' } );
-    console.log( "We're viewing an event." );
-  }
-});
 
+//let employer = FlowRouter.group({
+//  prefix: '/employer'
+//});
+//
+//employer.route( '/', {
+//  action: function() {
+//    BlazeLayout.render( 'applicationLayout', { main: '' } );
+//    console.log( "We're viewing a list of worker." );
+//  },
+//  name: 'employerApp'
+//});
 

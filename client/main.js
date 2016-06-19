@@ -21,10 +21,10 @@
 //  },
 //});
 
-//import '../imports/ui/body.js';
-import '../imports/ui/workerApp.js';
+import '../imports/ui/worker/app.js';
 
 // useraccounts configuration must be loaded before the routes of useraccounts:flow-routing
 import '../imports/at_config.js';
 
 import '../imports/routes.js';
+
