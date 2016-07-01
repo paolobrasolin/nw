@@ -3,7 +3,7 @@ import { Template } from 'meteor/templating';
 
 import './nav.html';
  
-Template.Worker_Nav.onRendered(function () {
+Template.Employer_Nav.onRendered(function () {
   $('.button-collapse').sideNav({
   });
 });

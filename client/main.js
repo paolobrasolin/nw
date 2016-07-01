@@ -21,10 +21,9 @@
 //  },
 //});
 
-import '../imports/ui/worker/app.js';
-
 // useraccounts configuration must be loaded before the routes of useraccounts:flow-routing
 import '../imports/at_config.js';
-
 import '../imports/routes.js';
 
+import '../imports/ui/worker/app.js';
+import '../imports/ui/employer/app.js';

@@ -5,13 +5,14 @@
 </head>
 
 <body>
-  {{> nav}}
-  {{> applicationLayout}}
+  {{> root}}
 </body>
 
-<template name="applicationLayout">
-  <main>
-    {{> Template.dynamic template=main}}
-  </main>
+<template name="root">
+  {{> Template.dynamic template=main}}
+</template>
+
+<template name="test">
+  Test.
 </template>
 

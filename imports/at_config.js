@@ -52,7 +52,7 @@ AccountsTemplates.configure({
 //    },
 //  },
 
-  defaultLayout: 'applicationLayout',
+  defaultLayout: 'root',
 //  defaultTemplate: 'myCustomFullPageAtForm',
   defaultLayoutRegions: {},
   defaultContentRegion: 'main'

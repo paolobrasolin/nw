@@ -1,11 +1,16 @@
-<template name="profile">
+<template name="Employer_Rubric_Add">
 <div class="container">
   <div class="row">
     <div class="col m10 offset-m1 s12">
-      <h2 class="center-align">Il tuo profilo</h2>
+      <h2 class="center-align">Nuovo contatto</h2>
       <div class="row">
-      {{#with ownProfile}}
         <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="CF" type="text" class="validate" value="{{CF}}" pattern="^[a-zA-Z0-9]{16}$" required>
+              <label for="CF" class="{{#if CF}}active{{/if}}">Codice fiscale</label>
+            </div>
+          </div>
           <div class="row">
             <div class="input-field col m6 s12">
               <input id="firstName" type="text" class="validate" value="{{firstName}}" pattern=".*" required>
@@ -18,7 +23,12 @@
           </div>
           <div class="row">
             <div class="input-field col s12">
-              <i class="mdi-content-mail prefix"></i>
+              <input id="phone" type="text" class="validate" value="{{phone}}" pattern=".*" required>
+              <label for="phone" class="{{#if phone}}active{{/if}}">Telefono</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
               <input id="email" type="email" class="validate" value="{{email}}" required>
               <label for="email" class="{{#if email}}active{{/if}}">Email</label>
             </div>
@@ -26,12 +36,11 @@
           <div class="row">
             <div class="col m12">
               <p class="right-align">
-                <button class="btn btn-large waves-effect waves-light red" type="submit" name="action">Salva</button>
+                <button class="btn btn-large waves-effect waves-light red" type="submit" name="action">Aggiungi</button>
               </p>
             </div>
           </div>
         </form>
-      {{/with}}
       </div>
     </div>
   </div>

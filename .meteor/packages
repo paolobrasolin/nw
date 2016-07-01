@@ -31,3 +31,5 @@ aldeed:simple-schema
 aldeed:collection2
 arillo:flow-router-helpers
 digilord:faker
+risul:chance
+email

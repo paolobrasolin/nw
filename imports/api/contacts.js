@@ -1,61 +1,44 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
  
-import { Contacts } from './contacts.js';
+export const Contacts = new Mongo.Collection('contacts');
 
-export const Employers = new Mongo.Collection('employers');
-
-Employers.schema = new SimpleSchema({
-  userId: {type: String},
-  PI: {type: String},
-  businessName: {type: String},
+Contacts.schema = new SimpleSchema({
+  workerId: {type: String, regEx: SimpleSchema.RegEx.Id},
+  employerId: {type: String, regEx: SimpleSchema.RegEx.Id},
 });
 
-Employers.attachSchema(Employers.schema);
+Contacts.attachSchema(Contacts.schema);
 
 if (Meteor.isServer) {
-
-  Meteor.publish('employers.known', function() {
+  Meteor.publish('contacts', function() {
     var user = Meteor.users.findOne( { _id: this.userId } );
-    var cons = Contacts.find( { workerId: user.workerId } );
-    var employerIds = cons.map(function (e) { return e.employerId; });
-    return Employers.find(
-      { _id: { "$in": employerIds } },
-      { fields: { userId: 0 } }
-    );
+    // hopefully this is smart
+    return Contacts.find( { $or: [
+      { workerId: user.workerId },
+      { employerId: user.employerId } ]});
     // specify returned fields here for security
   });
-
-  Meteor.publish('employers.single', function(employerId) {
-    new SimpleSchema({
-      employerId: {type: String},
-    }).validate({ employerId });
-    return Employers.find(
-      { _id: employerId },
-    );
-    // specify returned fields here for security
-  });
-
 }
 
 Meteor.methods({
-//  'workers.upsert'({businessName, lastName, email}) {
-//    if (! Meteor.userId()) {
-//      throw new Meteor.Error('not-authorized');
-//    }
-// 
-//    Workers.upsert(
-//      { userId: Meteor.userId() },
-//      { $set: {
-//        userId: Meteor.userId(),
-//        firstName: firstName,
-//        lastName: lastName,
-//        email: email,
-////        updatedAt: new Date()
-////        username: Meteor.user().username,
-//      }}
-//    );
-//  },
+  'contacts.upsert'({firstName, lastName, email}) {
+    if (! Meteor.userId()) {
+      throw new Meteor.Error('not-authorized');
+    }
+ 
+    Contacts.upsert(
+      { userId: Meteor.userId() },
+      { $set: {
+        userId: Meteor.userId(),
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+//        updatedAt: new Date()
+//        username: Meteor.user().username,
+      }}
+    );
+  },
 
 
 
@@ -103,3 +86,4 @@ Meteor.methods({
 //  },
 //
 });
+

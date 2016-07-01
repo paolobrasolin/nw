@@ -1,0 +1,13 @@
+<template name="Employer_Rubric">
+<div class="container">
+<ul class="collection">
+  {{#each contacts}}
+  <a href="{{pathFor '/employer/rubric/view/:id' id=_id}}" class="collection-item avatar"><li>
+    <img src="{{randomAvatar}}" alt="" class="circle">
+    <span class="title">{{firstName}} {{lastName}}</span>
+    <p>Cameriere</p>
+  </li></a>
+  {{/each}}
+</ul>
+</div>
+</template>
