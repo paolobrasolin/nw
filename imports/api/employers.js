@@ -10,7 +10,6 @@ export const Employers = new Mongo.Collection('employers');
 // =================================================================== SCHEMA ==
 
 Employers.schema = new SimpleSchema({
-  userId: {type: String},
   PI: {type: String},
   businessName: {type: String},
 });

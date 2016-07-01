@@ -17,61 +17,69 @@ Meteor.startup(function(){
 
   faker.locale = "it";
 
-  // populate worker users/profiles
-  if(Meteor.users.find({role: 'worker'}).count() < 200){
+  // populate workers
+  if ( Meteor.users.find({role: 'worker'}).count() < 200 ) {
+
     _.each(_.range(25), function(){
-      var email = faker.internet.email();
+
       var cf = CF.random();
+
       userId = Accounts.createUser({
         username: cf,
         password: 'password',
       });
-      // This will have to be automatized using onCreateUser callback when in production
+
       workerId = Workers.insert({
-        userId: userId,
         CF: cf,
         firstName: faker.name.firstName(),
         lastName: faker.name.lastName(),
-        phone: "000",
-        email: email,
+        phone: faker.phone.phoneNumber(),
+        email: faker.internet.email(),
       });
+
       Meteor.users.update(userId, {
         $set: {
           role: 'worker',
-          workerId: workerId
         }
       });
-    });
-  }
 
-  // populate employers users/profiles
+    });
+
+  };
+
+  // populate employers
   if(Meteor.users.find({role: 'employer'}).count() < 10){
+
     _.each(_.range(10), function(){
-      var email = faker.internet.email();
+
       var pi = PI.random();
+
       userId = Accounts.createUser({
         username: pi,
         password: 'password',
       });
-      // This will have to be automatized using onCreateUser callback when in production
+
       employerId = Employers.insert({
-        userId: userId,
         PI: pi,
         businessName: faker.company.companyName()
       });
+
       Meteor.users.update(userId, {
         $set: {
           role: 'employer',
-          employerId: employerId
         }
       });
+
     });
-  }
+
+  };
 
   // populate contacts
   if(Contacts.find().count() < 1){
+
     var emps = Employers.find().fetch();
     var wors = Workers.find().fetch();
+
     wors.forEach(function(w){
       _.each(_.sample(emps,4), function(e){
         Contacts.insert({
@@ -81,6 +89,6 @@ Meteor.startup(function(){
       });
     });
 
-  }
+  };
 
 });
