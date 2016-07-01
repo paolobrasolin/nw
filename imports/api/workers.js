@@ -1,9 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 import { Mongo } from 'meteor/mongo';
  
-import './mail.js';
-
 import { Contacts } from './contacts.js';
+
+import './mail.js';
 
 // =============================================================== COLLECTION ==
 
@@ -25,6 +25,7 @@ Workers.attachSchema(Workers.schema);
 
 if (Meteor.isServer) {
 
+
   Meteor.publish('workers.known', function() {
     var user = Meteor.users.findOne( { _id: this.userId } );
     var cons = Contacts.find( { employerId: user.employerId } );
@@ -36,6 +37,7 @@ if (Meteor.isServer) {
     // specify returned fields here for security
   });
 
+
   Meteor.publish('workers.single', function(workerId) {
     new SimpleSchema({
       workerId: {type: String},
@@ -46,12 +48,14 @@ if (Meteor.isServer) {
     // specify returned fields here for security
   });
 
+
   Meteor.publish('workers.profile', function() {
     return Workers.find({});//({userID: this.userId});
     // specify returned fields here for security
   });
 
-}
+
+};
 
 // ================================================================== METHODS ==
 

@@ -3,7 +3,11 @@ import { Mongo } from 'meteor/mongo';
  
 import { Email } from 'meteor/email';
 
+// ================================================================== METHODS ==
+
 Meteor.methods({
+
+
   'mail.send' (mail) {
 
     if (Meteor.isServer) {
@@ -17,7 +21,9 @@ Meteor.methods({
         text:    mail.text
       });
 
-    }
+    };
 
   },
+
+
 });
