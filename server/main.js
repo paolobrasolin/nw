@@ -6,8 +6,7 @@ import { Workers }   from '../imports/api/workers.js';
 import { Employers } from '../imports/api/employers.js';
 import { Contacts }  from '../imports/api/contacts.js';
 
-import { PI } from '../imports/api/picf.js';
-import { CF } from '../imports/api/picf.js';
+import { PI, CF } from '../imports/api/picf.js';
 
 Meteor.startup(function(){
 

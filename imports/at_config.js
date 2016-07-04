@@ -1,9 +1,11 @@
 AccountsTemplates.configure({
 
+  forbidClientAccountCreation: true,
+
+//  hideSignUpLink: true,
 //  // Behavior
 //  confirmPassword: true,
   enablePasswordChange: true,
-//  forbidClientAccountCreation: false,
 //  overrideLoginErrors: true,
 //  sendVerificationEmail: false,
 //  lowercaseUsername: false,
@@ -57,4 +59,30 @@ AccountsTemplates.configure({
   defaultLayoutRegions: {},
   defaultContentRegion: 'main'
 });
+
+
+
+
+
+var pwd = AccountsTemplates.removeField('password');
+
+AccountsTemplates.removeField('email');
+
+AccountsTemplates.addFields([
+  {
+    _id: "username",
+    type: "text",
+    displayName: "username",
+    required: true,
+    minLength: 5,
+  },
+  pwd
+]);
+
+
+
+
+
+
+
 

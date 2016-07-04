@@ -1,6 +1,6 @@
 
 AccountsTemplates.configureRoute('signIn');
-AccountsTemplates.configureRoute('signUp');
+//AccountsTemplates.configureRoute('signUp');
 AccountsTemplates.configureRoute('changePwd');
 //AccountsTemplates.configureRoute('forgotPwd');
 //AccountsTemplates.configureRoute('resetPwd');
@@ -15,6 +15,8 @@ AccountsTemplates.configureRoute('changePwd');
 //  },
 //  name: 'test'
 //});
+
+// ================================================================= WORKER ==
 
 let worker = FlowRouter.group({
   prefix: '/worker'
@@ -55,34 +57,7 @@ worker.route( '/calendar', {
   }
 });
 
-//worker.route( '/rubric/card', {
-//  action: function() {
-//    BlazeLayout.render( 'applicationLayout', { main: 'employerCard' } );
-//    console.log( "We're viewing an employer card." );
-//  }
-//});
-//
-//worker.route( '/event', {
-//  action: function() {
-//    BlazeLayout.render( 'applicationLayout', { main: 'event' } );
-//    console.log( "We're viewing an event." );
-//  }
-//});
-
-
-//let employer = FlowRouter.group({
-//  prefix: '/employer'
-//});
-//
-//employer.route( '/', {
-//  action: function() {
-//    BlazeLayout.render( 'applicationLayout', { main: '' } );
-//    console.log( "We're viewing a list of worker." );
-//  },
-//  name: 'employerApp'
-//});
-
-
+// ================================================================= EMPLOYER ==
 
 let employer = FlowRouter.group({
   prefix: '/employer'
@@ -93,7 +68,6 @@ employer.route( '/', {
     BlazeLayout.render( 'root', {
       main: 'Employer_App',
     } );
-    console.log( "We're viewing nothing." );
   }
 });
 
@@ -103,7 +77,6 @@ employer.route( '/rubric', {
       main: 'Employer_App',
       view: 'Employer_Rubric',
     } );
-    console.log( "We're viewing the rubric." );
   }
 });
 
@@ -113,7 +86,6 @@ employer.route( '/rubric/add', {
       main: 'Employer_App',
       view: 'Employer_Rubric_Add',
     } );
-    console.log( "We're viewing the rubric." );
   }
 });
 
@@ -123,7 +95,6 @@ employer.route( '/rubric/view/:workerId', {
       main: 'Employer_App',
       view: 'Employer_Rubric_Card',
     } );
-    console.log( "We're viewing an employer in the rubric." );
   }
 });
 

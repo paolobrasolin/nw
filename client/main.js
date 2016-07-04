@@ -22,7 +22,13 @@
 //});
 
 // useraccounts configuration must be loaded before the routes of useraccounts:flow-routing
+
+T9n.setLanguage("it")
+
+
+
 import '../imports/at_config.js';
+
 import '../imports/routes.js';
 
 import '../imports/ui/worker/app.js';
